@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VeteranProfile from "@/components/VeteranProfile";
 import { ChevronLeft, Share2 } from "lucide-react";
+import VeteranCard from '@/components/VeteranCard'
 
-// Моковые данные о ветеранах для примера
 const veteransData = [
   {
     id: 1,
@@ -120,14 +120,12 @@ const VeteranPage = () => {
   const [veteran, setVeteran] = useState<any | null>(null);
 
   useEffect(() => {
-    // Имитация загрузки данных с сервера
     const veteranId = parseInt(id || "0", 10);
     const foundVeteran = veteransData.find(v => v.id === veteranId);
     
     if (foundVeteran) {
       setVeteran(foundVeteran);
     } else {
-      // Ветеран не найден, перенаправляем на страницу поиска
       navigate("/search");
     }
   }, [id, navigate]);
@@ -181,7 +179,6 @@ const VeteranPage = () => {
           
           <VeteranProfile {...veteran} />
           
-          {/* Похожие истории */}
           <div className="mt-12">
             <h2 className="text-2xl font-bold mb-6 text-victory-dark-blue">Похожие истории</h2>
             
@@ -190,7 +187,7 @@ const VeteranPage = () => {
                 .filter(v => v.id !== veteran.id && v.service === veteran.service)
                 .slice(0, 4)
                 .map((relatedVeteran) => (
-                  <VeteranCard 
+                  <VeteranCard
                     key={relatedVeteran.id}
                     id={relatedVeteran.id}
                     name={relatedVeteran.name}

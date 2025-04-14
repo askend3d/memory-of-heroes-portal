@@ -1,124 +1,128 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 0 0% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 20%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 20%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 20%;
 
-    --primary: 0 68% 27%;  /* dark red */
-    --primary-foreground: 0 0% 100%;
+		--primary: 0 68% 27%; /* dark red */
+		--primary-foreground: 0 0% 100%;
 
-    --secondary: 217 49% 26%; /* dark blue */
-    --secondary-foreground: 0 0% 100%;
+		--secondary: 217 49% 26%; /* dark blue */
+		--secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+		--muted: 0 0% 96%;
+		--muted-foreground: 0 0% 45%;
 
-    --accent: 43 67% 52%; /* gold */
-    --accent-foreground: 0 0% 20%;
+		--accent: 43 67% 52%; /* gold */
+		--accent-foreground: 0 0% 20%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+		--destructive: 0 84% 60%;
+		--destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 68% 27%; /* dark red */
+		--border: 0 0% 90%;
+		--input: 0 0% 90%;
+		--ring: 0 68% 27%; /* dark red */
 
-    --radius: 0.5rem;
-  }
+		--radius: 0.5rem;
+	}
 
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
+	.dark {
+		--background: 0 0% 10%;
+		--foreground: 0 0% 98%;
 
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 98%;
+		--card: 0 0% 15%;
+		--card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 98%;
+		--popover: 0 0% 15%;
+		--popover-foreground: 0 0% 98%;
 
-    --primary: 0 68% 40%;
-    --primary-foreground: 0 0% 100%;
+		--primary: 0 68% 40%;
+		--primary-foreground: 0 0% 100%;
 
-    --secondary: 217 49% 36%;
-    --secondary-foreground: 0 0% 100%;
+		--secondary: 217 49% 36%;
+		--secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+		--muted: 0 0% 20%;
+		--muted-foreground: 0 0% 65%;
 
-    --accent: 43 67% 42%;
-    --accent-foreground: 0 0% 98%;
+		--accent: 43 67% 42%;
+		--accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
+		--destructive: 0 62% 30%;
+		--destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 68% 40%;
-  }
+		--border: 0 0% 20%;
+		--input: 0 0% 20%;
+		--ring: 0 68% 40%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+	* {
+		@apply border-border;
+	}
 
-  body {
-    @apply bg-background text-foreground font-ptsans;
-  }
+	body {
+		@apply bg-background text-foreground font-roboto;
+	}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair font-bold;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-montserrat font-bold;
+	}
 }
 
 /* Георгиевская лента */
 .ribbon {
-  background: repeating-linear-gradient(
-    45deg,
-    #ff7700,
-    #ff7700 10px,
-    #000000 10px,
-    #000000 20px
-  );
+	background: repeating-linear-gradient(
+		45deg,
+		#ff7700,
+		#ff7700 10px,
+		#000000 10px,
+		#000000 20px
+	);
 }
 
 /* Глобальные стили для ссылок */
 .victory-link {
-  @apply text-victory-dark-red hover:text-victory-gold transition-colors duration-300 underline underline-offset-4;
+	@apply text-victory-dark-red hover:text-victory-gold transition-colors duration-300 underline underline-offset-4;
 }
 
 /* Стили для карточек ветеранов */
 .veteran-card {
-  @apply relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+	@apply relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
 }
 
 .veteran-card:hover {
-  @apply transform -translate-y-1;
+	@apply transform -translate-y-1;
 }
 
 /* Стили для общих кнопок */
 .btn-victory {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300;
+	@apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300;
 }
 
 .btn-primary {
-  @apply btn-victory bg-victory-dark-red text-white hover:bg-red-900;
+	@apply btn-victory bg-victory-dark-red text-white hover:bg-red-900;
 }
 
 .btn-secondary {
-  @apply btn-victory bg-victory-dark-blue text-white hover:bg-blue-900;
+	@apply btn-victory bg-victory-dark-blue text-white hover:bg-blue-900;
 }
 
 .btn-accent {
-  @apply btn-victory bg-victory-gold text-black hover:bg-yellow-600;
+	@apply btn-victory bg-victory-gold text-black hover:bg-yellow-600;
 }
