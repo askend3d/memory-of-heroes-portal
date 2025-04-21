@@ -29,7 +29,6 @@ const VeteranProfile = ({
 }: VeteranProfileProps) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div className="ribbon h-2 w-full"></div>
       
       <div className="p-6 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

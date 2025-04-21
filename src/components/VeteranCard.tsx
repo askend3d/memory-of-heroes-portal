@@ -14,7 +14,6 @@ export interface VeteranProps {
 const VeteranCard = ({ id, name, years, rank, service, photo, awards = [] }: VeteranProps) => {
   return (
     <Link to={`/veteran/${id}`} className="veteran-card block">
-      <div className="ribbon h-1.5 w-full"></div>
       <div className="p-4">
         <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-gray-200 rounded-md">
           <img

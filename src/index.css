@@ -73,12 +73,6 @@
 
 	body {
 		@apply bg-background text-foreground font-roboto;
-<<<<<<< HEAD
-		background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/mountains-bg.jpg');
-		background-attachment: fixed;
-		background-size: cover;
-=======
->>>>>>> parent of a10afbd (Правки по главной странице)
 	}
 
 	h1,
@@ -130,6 +124,5 @@
 }
 
 .btn-accent {
-	@apply btn-victory bg-victory-dark-red text-white hover:bg-red-900;
 	@apply btn-victory bg-victory-gold text-black hover:bg-yellow-600;
 }
