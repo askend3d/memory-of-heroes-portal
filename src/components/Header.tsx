@@ -1,3 +1,4 @@
+
 import { Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -15,7 +16,7 @@ const Header = () => {
 							style={{ width: 50, height: 36 }}
 						/>
 						<Link to='/' className='flex items-center'>
-							<span className='text-3xl font-montserrat font-bold text-victory-dark-red'>
+							<span className='text-3xl font-montserrat font-bold text-victory-dark-green'>
 								Память Героев
 							</span>
 						</Link>
@@ -25,25 +26,25 @@ const Header = () => {
 				<nav className='flex flex-col md:flex-row md:items-center gap-4 md:gap-6'>
 					<Link
 						to='/'
-						className='font-medium text-lg hover:text-victory-dark-red transition-colors'
+						className='font-medium hover:text-victory-dark-red transition-colors'
 					>
 						Главная
 					</Link>
 					<Link
 						to='/search'
-						className='font-medium text-lg hover:text-victory-dark-red transition-colors'
+						className='font-medium hover:text-victory-dark-red transition-colors'
 					>
 						Поиск ветеранов
 					</Link>
 					<Link
 						to='/add'
-						className='font-medium text-lg hover:text-victory-dark-red transition-colors'
+						className='font-medium hover:text-victory-dark-red transition-colors'
 					>
 						Добавить историю
 					</Link>
 					<Link
 						to='/search'
-						className='inline-flex items-center justify-center px-4 py-2 bg-victory-dark-red text-white rounded-md hover:bg-red-900 transition-colors text-lg'
+						className='inline-flex items-center justify-center px-4 py-2 bg-victory-dark-red text-white rounded-md hover:bg-red-900 transition-colors'
 					>
 						<Search className='w-5 h-5 mr-2' />
 						<span>Найти ветерана</span>

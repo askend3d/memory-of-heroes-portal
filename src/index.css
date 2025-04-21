@@ -78,7 +78,7 @@
 	}
 
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground font-roboto;
 	}
 
 	h1,
@@ -104,7 +104,7 @@
 
 /* Глобальные стили для ссылок */
 .victory-link {
-	@apply text-victory-dark-red hover:text-victory-gold transition-colors duration-300 underline underline-offset-4;
+	@apply text-victory-dark-green hover:text-victory-dark-red transition-colors duration-300 underline underline-offset-4;
 }
 
 /* Стили для карточек ветеранов */
@@ -122,7 +122,7 @@
 }
 
 .btn-primary {
-	@apply btn-victory bg-victory-dark-red text-white hover:bg-red-900;
+	@apply btn-victory bg-victory-dark-green text-white hover:bg-green-800;
 }
 
 .btn-secondary {
@@ -130,7 +130,7 @@
 }
 
 .btn-accent {
-	@apply btn-victory bg-victory-gold text-black hover:bg-yellow-600;
+	@apply btn-victory bg-victory-dark-red text-white hover:bg-red-900;
 }
 
 .text-3d {
