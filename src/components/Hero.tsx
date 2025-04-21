@@ -22,27 +22,18 @@ const Hero = () => {
 
 			<div className='container mx-auto px-4 relative z-10'>
 				<div className='text-center max-w-3xl mx-auto'>
-					<div className='flex justify-center mb-6'>
-						<Mountain className='h-16 w-16 text-victory-gold' />
-					</div>
 					<h1 className='text-4xl md:text-6xl font-bold mb-6 leading-tight'>
 						Память о подвиге героев Великой Отечественной Войны
 					</h1>
-					<p className='text-xl md:text-2xl mb-8 text-gray-200'>
+					<p className='text-xl md:text-2xl mb-8 text-gray-300'>
 						Сохраним историю каждого, кто защищал нашу Родину в годы тяжелых
 						испытаний
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
-						<Link 
-							to='/search' 
-							className='inline-flex items-center px-6 py-3 bg-victory-dark-red hover:bg-red-900 text-white rounded-md transition-colors'
-						>
+						<Link to='/search' className='btn-primary'>
 							Найти ветерана
 						</Link>
-						<Link 
-							to='/add' 
-							className='inline-flex items-center px-6 py-3 bg-victory-dark-green hover:bg-green-800 text-white rounded-md transition-colors'
-						>
+						<Link to='/add' className='btn-accent'>
 							Добавить историю
 						</Link>
 					</div>
@@ -52,7 +43,7 @@ const Hero = () => {
 			{/* Индикатор прокрутки */}
 			<div className='absolute bottom-8 left-0 right-0 flex justify-center animate-bounce'>
 				<svg
-					className='w-8 h-8 text-victory-gold'
+					className='w-8 h-8 text-white'
 					fill='none'
 					stroke='currentColor'
 					viewBox='0 0 24 24'
