@@ -23,9 +23,9 @@ const VeteranCard = ({ id, name, years, rank, service, photo, awards = [] }: Vet
             className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
           />
         </div>
-        <h3 className="text-xl font-bold mb-1 text-gray-900">{name}</h3>
+        <h3 className="text-xl font-bold mb-1 text-victory-dark-green">{name}</h3>
         <p className="text-gray-600 text-sm mb-1">{years}</p>
-        <p className="text-gray-700 font-medium">{rank}</p>
+        <p className="text-victory-dark-red font-medium">{rank}</p>
         <p className="text-gray-600 text-sm">{service}</p>
         
         {awards && awards.length > 0 && (
@@ -33,7 +33,7 @@ const VeteranCard = ({ id, name, years, rank, service, photo, awards = [] }: Vet
             {awards.map((award, index) => (
               <span 
                 key={index} 
-                className="inline-block bg-victory-gold/10 text-victory-dark-red text-xs px-2 py-1 rounded-full"
+                className="inline-block bg-victory-light-green/10 text-victory-dark-green text-xs px-2 py-1 rounded-full"
               >
                 {award}
               </span>
