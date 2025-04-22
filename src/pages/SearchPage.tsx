@@ -1,11 +1,10 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import SearchBar from '@/components/SearchBar'
+import SearchBar, { FilterType } from '@/components/SearchBar'
 import VeteranCard from '@/components/VeteranCard'
 import { useState } from 'react'
 
 const SearchPage = () => {
-	// Моковые данные о ветеранах для примера
 	const allVeterans = [
 		{
 			id: 1,
@@ -84,20 +83,27 @@ const SearchPage = () => {
 	const [searchQuery, setSearchQuery] = useState('')
 	const [sortBy, setSortBy] = useState('name')
 
-	const handleSearch = (query: string) => {
+	const handleSearch = (query: string, activeFilters: FilterType[]) => {
 		setSearchQuery(query)
 
-		if (!query.trim()) {
-			setSearchResults(allVeterans)
-			return
+		let filtered = allVeterans
+
+		// Применяем фильтры по роду войск
+		if (activeFilters.length > 0) {
+			filtered = filtered.filter(veteran => 
+				activeFilters.includes(veteran.service as FilterType)
+			)
 		}
 
-		const filtered = allVeterans.filter(
-			veteran =>
-				veteran.name.toLowerCase().includes(query.toLowerCase()) ||
-				veteran.rank.toLowerCase().includes(query.toLowerCase()) ||
-				veteran.service.toLowerCase().includes(query.toLowerCase())
-		)
+		// Применяем текстовый поиск
+		if (query.trim()) {
+			filtered = filtered.filter(
+				veteran =>
+					veteran.name.toLowerCase().includes(query.toLowerCase()) ||
+					veteran.rank.toLowerCase().includes(query.toLowerCase()) ||
+					veteran.service.toLowerCase().includes(query.toLowerCase())
+			)
+		}
 
 		setSearchResults(filtered)
 	}
@@ -168,7 +174,7 @@ const SearchPage = () => {
 								По вашему запросу ничего не найдено
 							</p>
 							<button
-								onClick={() => handleSearch('')}
+								onClick={() => handleSearch('', [])}
 								className='text-victory-dark-red hover:text-victory-gold transition-colors'
 							>
 								Сбросить поиск

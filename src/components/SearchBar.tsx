@@ -1,18 +1,30 @@
-
 import { useState } from "react";
 import { Search, Filter } from "lucide-react";
 
+export type FilterType = "Пехота" | "Авиация" | "Танковые войска" | "Флот" | "Партизаны";
+
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch: (query: string, activeFilters: FilterType[]) => void;
 }
 
 const SearchBar = ({ onSearch }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilters, setActiveFilters] = useState<FilterType[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSearch(searchQuery);
+    onSearch(searchQuery, activeFilters);
   };
+
+  const toggleFilter = (filter: FilterType) => {
+    setActiveFilters((prev) =>
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter]
+    );
+  };
+
+  const filters: FilterType[] = ["Пехота", "Авиация", "Танковые войска", "Флот", "Партизаны"];
 
   return (
     <div className="w-full bg-white rounded-lg shadow-md p-4 md:p-6">
@@ -39,36 +51,20 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
             <span className="text-gray-700 font-medium">Фильтры:</span>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-colors"
-            >
-              Пехота
-            </button>
-            <button
-              type="button"
-              className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-colors"
-            >
-              Авиация
-            </button>
-            <button
-              type="button"
-              className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-colors"
-            >
-              Танковые войска
-            </button>
-            <button
-              type="button"
-              className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-colors"
-            >
-              Флот
-            </button>
-            <button
-              type="button"
-              className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm hover:bg-gray-200 transition-colors"
-            >
-              Партизаны
-            </button>
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => toggleFilter(filter)}
+                className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                  activeFilters.includes(filter)
+                    ? "bg-victory-dark-red text-white"
+                    : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
         </div>
       </form>
